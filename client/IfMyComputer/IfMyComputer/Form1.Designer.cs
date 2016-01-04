@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.promptlabel = new System.Windows.Forms.Label();
+            this.passwdTextbox = new System.Windows.Forms.TextBox();
+            this.usernameTextbox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.windowsNnotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.usernameTextbox = new System.Windows.Forms.TextBox();
-            this.passwdTextbox = new System.Windows.Forms.TextBox();
-            this.promptlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.promptlabel);
             this.panel1.Controls.Add(this.passwdTextbox);
             this.panel1.Controls.Add(this.usernameTextbox);
@@ -57,6 +58,48 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 118);
             this.panel1.TabIndex = 0;
+            // 
+            // promptlabel
+            // 
+            this.promptlabel.AutoSize = true;
+            this.promptlabel.Location = new System.Drawing.Point(3, 75);
+            this.promptlabel.Name = "promptlabel";
+            this.promptlabel.Size = new System.Drawing.Size(41, 12);
+            this.promptlabel.TabIndex = 3;
+            this.promptlabel.Text = "prompt";
+            // 
+            // passwdTextbox
+            // 
+            this.passwdTextbox.Location = new System.Drawing.Point(53, 44);
+            this.passwdTextbox.Name = "passwdTextbox";
+            this.passwdTextbox.PasswordChar = '*';
+            this.passwdTextbox.Size = new System.Drawing.Size(144, 21);
+            this.passwdTextbox.TabIndex = 1;
+            // 
+            // usernameTextbox
+            // 
+            this.usernameTextbox.Location = new System.Drawing.Point(53, 13);
+            this.usernameTextbox.Name = "usernameTextbox";
+            this.usernameTextbox.Size = new System.Drawing.Size(144, 21);
+            this.usernameTextbox.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "密  码：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "用户名：";
             // 
             // loginButton
             // 
@@ -80,8 +123,9 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(194, 424);
+            this.panel2.Location = new System.Drawing.Point(12, 424);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(363, 118);
             this.panel2.TabIndex = 1;
@@ -91,56 +135,16 @@
             this.textBox1.Location = new System.Drawing.Point(3, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 115);
+            this.textBox1.Size = new System.Drawing.Size(360, 115);
             this.textBox1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "用户名：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "密  码：";
-            // 
-            // usernameTextbox
-            // 
-            this.usernameTextbox.Location = new System.Drawing.Point(53, 13);
-            this.usernameTextbox.Name = "usernameTextbox";
-            this.usernameTextbox.Size = new System.Drawing.Size(144, 21);
-            this.usernameTextbox.TabIndex = 0;
-            // 
-            // passwdTextbox
-            // 
-            this.passwdTextbox.Location = new System.Drawing.Point(53, 44);
-            this.passwdTextbox.Name = "passwdTextbox";
-            this.passwdTextbox.PasswordChar = '*';
-            this.passwdTextbox.Size = new System.Drawing.Size(144, 21);
-            this.passwdTextbox.TabIndex = 1;
-            // 
-            // promptlabel
-            // 
-            this.promptlabel.AutoSize = true;
-            this.promptlabel.Location = new System.Drawing.Point(3, 75);
-            this.promptlabel.Name = "promptlabel";
-            this.promptlabel.Size = new System.Drawing.Size(41, 12);
-            this.promptlabel.TabIndex = 3;
-            this.promptlabel.Text = "prompt";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);

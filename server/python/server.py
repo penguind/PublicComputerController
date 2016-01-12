@@ -5,17 +5,14 @@ import web
 
 class index(object):
     """docstring for index"""
-    def __init__(self, arg):
-        super(index, self).__init__()
-        self.arg = arg
-
-    def Get(self):
+    def GET(self):
         return "Hello world!"
 
 urls = (
-    '/', index
+    '/', 'index'
     )
 
-if __name__ == '__main__':
-    web.application(urls, globals())
+if __name__ == "__main__":
+    appweb = web.application(urls, globals())
+    appweb.run()
         

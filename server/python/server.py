@@ -8,8 +8,14 @@ class index(object):
     def GET(self):
         return "Hello world!"
 
+class Icon(object):
+    """Icon of website"""
+    def GET(self):
+        raise web.seeother("/static/res/favicon.ico")
+
 urls = (
-    '/', 'index'
+    '/', 'index',
+    '/favicon.ico', 'Icon',
     )
 
 if __name__ == "__main__":

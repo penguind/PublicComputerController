@@ -13,13 +13,19 @@ namespace IfMyComputer
     {
         private enum WorkState { Hide, Show };
         private WorkState workstate = WorkState.Show;
+        private SessionSwitchReason userLoginType = SessionSwitchReason.SessionLogon;
+        private string lastLogInfo = "";
 
         //private SessionWatcher sWatcher;
 
         public Form1()
         {
             InitializeComponent();
+#if DEBUG
+            loglistpanel.Visible = false;
+#else
             SystemEvents.SessionSwitch += loginEventChanged;
+#endif
         }
 
         private void showMaxScreen()
@@ -37,7 +43,50 @@ namespace IfMyComputer
 
         private void writeLog(string logitem)
         {
+#if DEBUG
+            return;
+#else
             this.textBox1.Text += getTime() + logitem + "\r\n";
+#endif
+        }
+
+        private void writePrompt(string prompt)
+        {
+            this.promptlabel.Text = prompt;
+        }
+
+        private bool isLoginSucc()
+        {
+            return true;
+        }
+
+        private string getUserName()
+        {
+            return this.usernameTextbox.Text.Trim();
+        }
+
+        private string getUserLoginType()
+        {
+            if (userLoginType == SessionSwitchReason.ConsoleConnect)
+            {
+                return "从控制台登录";
+            }
+            else if (userLoginType == SessionSwitchReason.RemoteConnect)
+            {
+                return "从远程登录";
+            }
+            else if (userLoginType == SessionSwitchReason.SessionLogon)
+            {
+                return "从会话登录";
+            }
+            else if (userLoginType == SessionSwitchReason.SessionUnlock)
+            {
+                return "从解除锁定登录";
+            }
+            else
+            {
+                return "";
+            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -47,7 +96,17 @@ namespace IfMyComputer
             this.Hide();
             workstate = WorkState.Hide;
             passwdTextbox.Text = "";
-            writeLog(usernameTextbox.Text + " log in");
+            if (isLoginSucc())
+            {
+                writeLog(usernameTextbox.Text + " log in");
+                passwdTextbox.Text = "";
+                lastLogInfo = DateTime.Now.ToString("yyyy.MM.dd HH:mm") + " " + getUserName() + " " + getUserLoginType() + " 登录";
+                writePrompt(lastLogInfo);
+            }
+            else
+            {
+                writePrompt("登录失败");
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -74,6 +133,9 @@ namespace IfMyComputer
                 return;
             }
 
+            writePrompt(lastLogInfo);
+            userLoginType = e.Reason;
+
             if (e.Reason == SessionSwitchReason.ConsoleConnect)
             {
                 writeLog("ConsoleConnect");
@@ -81,47 +143,38 @@ namespace IfMyComputer
             else if (e.Reason == SessionSwitchReason.ConsoleDisconnect)
             {
                 writeLog("ConsoleDisconnect");
-
             }
             else if (e.Reason == SessionSwitchReason.RemoteConnect)
             {
                 writeLog("RemoteConnect");
-
             }
             else if (e.Reason == SessionSwitchReason.RemoteDisconnect)
             {
                 writeLog("RemoteDisconnect");
-
             }
             else if (e.Reason == SessionSwitchReason.SessionLock)
             {
                 writeLog("SessionLock");
-
             }
             else if (e.Reason == SessionSwitchReason.SessionLogoff)
             {
                 writeLog("SessionLogoff");
-
             }
             else if (e.Reason == SessionSwitchReason.SessionLogon)
             {
                 writeLog("SessionLogon");
-
             }
             else if (e.Reason == SessionSwitchReason.SessionRemoteControl)
             {
                 writeLog("SessionRemoteControl");
-
             }
             else if (e.Reason == SessionSwitchReason.SessionUnlock)
             {
                 writeLog("SessionUnlock");
-
             }
             else
             {
                 writeLog("Others");
-
             }
             showMaxScreen();
         }

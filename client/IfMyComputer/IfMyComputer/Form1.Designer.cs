@@ -35,6 +35,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.promptlabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.settingpanel = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.passwdTextbox = new System.Windows.Forms.TextBox();
             this.usernameTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +51,7 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.settingpanel.SuspendLayout();
             this.loglistpanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,9 +62,9 @@
             this.panel1.Controls.Add(this.promptpanel);
             this.panel1.Controls.Add(this.loginButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 536);
+            this.panel1.Location = new System.Drawing.Point(0, 484);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 64);
+            this.panel1.Size = new System.Drawing.Size(800, 116);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -68,18 +72,18 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Location = new System.Drawing.Point(27, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(734, 64);
+            this.panel3.Size = new System.Drawing.Size(707, 116);
             this.panel3.TabIndex = 5;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.promptlabel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 11);
+            this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(734, 19);
+            this.panel5.Size = new System.Drawing.Size(707, 30);
             this.panel5.TabIndex = 5;
             // 
             // promptlabel
@@ -87,7 +91,7 @@
             this.promptlabel.AutoSize = true;
             this.promptlabel.ForeColor = System.Drawing.Color.White;
             this.promptlabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.promptlabel.Location = new System.Drawing.Point(366, 0);
+            this.promptlabel.Location = new System.Drawing.Point(456, 15);
             this.promptlabel.Name = "promptlabel";
             this.promptlabel.Size = new System.Drawing.Size(233, 12);
             this.promptlabel.TabIndex = 3;
@@ -95,6 +99,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.settingpanel);
             this.panel4.Controls.Add(this.passwdTextbox);
             this.panel4.Controls.Add(this.usernameTextbox);
             this.panel4.Controls.Add(this.label2);
@@ -102,12 +107,38 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 30);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(734, 34);
+            this.panel4.Size = new System.Drawing.Size(707, 86);
             this.panel4.TabIndex = 4;
+            // 
+            // settingpanel
+            // 
+            this.settingpanel.Controls.Add(this.textBox2);
+            this.settingpanel.Controls.Add(this.label3);
+            this.settingpanel.Location = new System.Drawing.Point(458, 56);
+            this.settingpanel.Name = "settingpanel";
+            this.settingpanel.Size = new System.Drawing.Size(233, 28);
+            this.settingpanel.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(90, 0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(144, 21);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "认证服务器IP：";
             // 
             // passwdTextbox
             // 
-            this.passwdTextbox.Location = new System.Drawing.Point(584, 3);
+            this.passwdTextbox.Location = new System.Drawing.Point(547, 29);
             this.passwdTextbox.Name = "passwdTextbox";
             this.passwdTextbox.PasswordChar = '*';
             this.passwdTextbox.Size = new System.Drawing.Size(144, 21);
@@ -115,7 +146,7 @@
             // 
             // usernameTextbox
             // 
-            this.usernameTextbox.Location = new System.Drawing.Point(368, 3);
+            this.usernameTextbox.Location = new System.Drawing.Point(547, 3);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(144, 21);
             this.usernameTextbox.TabIndex = 0;
@@ -124,7 +155,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(534, 6);
+            this.label2.Location = new System.Drawing.Point(497, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
@@ -134,7 +165,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(318, 6);
+            this.label1.Location = new System.Drawing.Point(497, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
@@ -153,7 +184,7 @@
             this.loginButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.loginButton.Location = new System.Drawing.Point(734, 0);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(66, 64);
+            this.loginButton.Size = new System.Drawing.Size(66, 116);
             this.loginButton.TabIndex = 2;
             this.loginButton.Text = "登 录";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -171,7 +202,7 @@
             this.loglistpanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loglistpanel.BackColor = System.Drawing.Color.Transparent;
             this.loglistpanel.Controls.Add(this.textBox1);
-            this.loglistpanel.Location = new System.Drawing.Point(12, 412);
+            this.loglistpanel.Location = new System.Drawing.Point(12, 338);
             this.loglistpanel.Name = "loglistpanel";
             this.loglistpanel.Size = new System.Drawing.Size(363, 118);
             this.loglistpanel.TabIndex = 1;
@@ -213,6 +244,8 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.settingpanel.ResumeLayout(false);
+            this.settingpanel.PerformLayout();
             this.loglistpanel.ResumeLayout(false);
             this.loglistpanel.PerformLayout();
             this.ResumeLayout(false);
@@ -235,6 +268,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel settingpanel;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

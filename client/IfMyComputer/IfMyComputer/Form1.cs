@@ -57,6 +57,10 @@ namespace IfMyComputer
 
         private bool isLoginSucc()
         {
+            if (isAdminLogin())
+            {
+                return false;
+            }
             return true;
         }
 

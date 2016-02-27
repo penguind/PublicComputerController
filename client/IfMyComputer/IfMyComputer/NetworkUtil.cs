@@ -76,5 +76,41 @@ namespace IfMyComputer
                 return false;
             }
         }
+
+        /// <summary>
+        /// Validate string if it is a accepted IP string.
+        /// </summary>
+        /// <param name="ip">Validated string</param>
+        /// <returns>true if accepted, on the other side, false.</returns>
+        public static bool validateIP(string ip)
+        {
+            try
+            {
+                string[] iptemp = ip.Split('.');
+                if (iptemp.Length == 4)
+                {
+                    int ipseq = 0;
+                    bool badIp = true;
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        if (int.TryParse(iptemp[0], out ipseq) == false)
+                        {
+                            badIp = true;
+                            break;
+                        }
+                        if (ipseq >= 0 && ipseq <= 255)
+                        {
+                            badIp = false;
+                        }
+                    }
+                    return badIp;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }
     }
 }

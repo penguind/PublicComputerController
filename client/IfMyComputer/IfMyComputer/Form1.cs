@@ -57,7 +57,7 @@ namespace IfMyComputer
 
         private bool isLoginSucc()
         {
-            if (isAdminLogin())
+            if (Auth.isAdminLogin(this.usernameTextbox.Text, this.passwdTextbox.Text) == false)
             {
                 return false;
             }
@@ -95,13 +95,13 @@ namespace IfMyComputer
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            this.ShowInTaskbar = false;
-            this.Hide();
-            workstate = WorkState.Hide;
-            passwdTextbox.Text = "";
             if (isLoginSucc())
             {
+                this.Visible = false;
+                this.ShowInTaskbar = false;
+                this.Hide();
+                workstate = WorkState.Hide;
+                passwdTextbox.Text = "";
                 writeLog(usernameTextbox.Text + " log in");
                 passwdTextbox.Text = "";
                 lastLogInfo = DateTime.Now.ToString("yyyy.MM.dd HH:mm") + " " + getUserName() + " " + getUserLoginType() + " 登录";

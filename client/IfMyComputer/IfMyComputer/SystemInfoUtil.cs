@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Management;
+using System.Net;
 
 namespace IfMyComputer
 {
@@ -10,7 +11,7 @@ namespace IfMyComputer
         /// <summary>
         /// Get the unique ID of the CPU.
         /// </summary>
-        /// <returns>the unique ID of the CPU, if get many, seperate with ';'</returns>
+        /// <returns>the unique ID of the CPU, if get many, seperate with ';'.If error occurred, return "unknown"</returns>
         public static string getCpuID()
         {
             string cpuInfo = "";
@@ -30,6 +31,23 @@ namespace IfMyComputer
             {
                 return "unknown";
             }
+        }
+        
+        /// <summary>
+        /// Get ip list of PC
+        /// </summary>
+        /// <returns>List of IP, seperated by ';'</returns>
+        public string GetAddressIP()
+        {
+            string AddressIP = "";
+            foreach (IPAddress _IPAddress in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            {
+                if (_IPAddress.AddressFamily.ToString() == "InterNetwork")
+                {
+                    AddressIP += _IPAddress.ToString() + ";";
+                }
+            }
+            return AddressIP;
         }
     }
 }

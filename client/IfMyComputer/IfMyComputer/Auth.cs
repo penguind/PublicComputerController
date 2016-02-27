@@ -34,5 +34,14 @@ namespace IfMyComputer
                 return false;
             }
         }
+
+        /// <summary>
+        /// Define which unique sequence will be the secret key.
+        /// </summary>
+        /// <returns>Secret key seq.</returns>
+        public static string getSecretKey()
+        {
+            return SystemInfoUtil.getCpuID().Trim();
+        }
     }
 }

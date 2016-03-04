@@ -11,10 +11,29 @@ namespace IfMyComputer
         private string responseContent;
         private string errorData;
 
-        NetworkUtil()
+        public NetworkUtil()
         {
             responseContent = "";
             errorData = "";
+        }
+
+        /// <summary>
+        /// Get the content server returned.
+        /// </summary>
+        /// <returns>The content server returned</returns>
+        public string getResponseContent()
+        {
+            return responseContent;
+        }
+
+        /// <summary>
+        /// Get the error message when sent or recieved via bad network.
+        /// Useful only when error occurred.
+        /// </summary>
+        /// <returns>Error message</returns>
+        public string getErrorData()
+        {
+            return errorData;
         }
 
         /// <summary>
@@ -66,7 +85,7 @@ namespace IfMyComputer
                 client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                 client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
                 client.Headers.Add("ContentLength", postMsg.Length.ToString());
-                byte[] responseData = client.UploadData("url", "POST", bytes);
+                byte[] responseData = client.UploadData(url, "POST", bytes);
                 responseContent = Encoding.Default.GetString(responseData);
                 return true;
             }
